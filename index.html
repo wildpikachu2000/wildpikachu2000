@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>人民币购买力计算器</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <META content="人民币,购买力,购买力转换,年度人民币购买力,居民消费指数,CPI,purchasing power,renminbi purchashing power" name="keywords">
+    <META content="根据居民消费指数转化不同年份人民币的购买力" name="description">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+<div class="modal show">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+          <h1 class="text-center">人民币购买力计算器</h1>
+      </div>
+      <div class="modal-body">
+          <form class="form col-md-12 center-block">
+            <div class="col-sm-3"></div>
+            <div class="form-group col-sm-6">
+            <div class="input-group">
+              <span class="input-group-addon">金额:</span>
+              <input type="text" class="form-control input-lg" id="amount" value = "100.0" onkeyup="update_amount()" data-toggle="tooltip" data-placement="top" title="请输入数字">
+            </div>
+          </div>
+            <div class="col-sm-3"></div>
+          </form>
+          <form class="form-inline col-md-12 center-block" style="margin-bottom: 10px">
+            <div class="col-md-3"></div>
+            <div class="form-group col-md-6">
+              <label for="year1">年份1</label>
+              <select class="form-control" id="year1" onchange="update_pp()">
+                <option>1978</option>
+                <option>1979</option>
+                <option>1980</option>
+                <option>1981</option>
+                <option>1982</option>
+                <option>1983</option>
+                <option>1984</option>
+                <option>1985</option>
+                <option>1986</option>
+                <option>1987</option>
+                <option>1988</option>
+                <option>1989</option>                
+                <option>1990</option>
+                <option>1991</option>
+                <option>1992</option>
+                <option>1993</option>
+                <option>1994</option>
+                <option>1995</option>
+                <option>1996</option>
+                <option>1997</option>
+                <option>1998</option>               
+                <option>1999</option>
+                <option>2000</option>
+                <option>2001</option>
+                <option>2002</option>               
+                <option>2003</option>
+                <option>2004</option>               
+                <option>2005</option>
+                <option>2006</option>               
+                <option>2007</option>
+                <option>2008</option>               
+                <option>2009</option>
+                <option>2010</option>               
+                <option>2011</option>
+                <option>2012</option>               
+                <option selected="selected">2013</option>
+              </select> 
+            </div>
+            <div class="col-sm-3"></div>
+          </form>
+          <form class="form-inline col-md-12 center-block" style="margin-bottom: 10px">
+            <div class="col-md-3"></div>
+            <div class="form-group col-md-6">
+              <label for="year2">年份2</label>
+              <select class="form-control" id="year2" onchange="update_pp()">
+                <option>1978</option>
+                <option>1979</option>
+                <option>1980</option>
+                <option>1981</option>
+                <option>1982</option>
+                <option>1983</option>
+                <option>1984</option>
+                <option>1985</option>
+                <option>1986</option>
+                <option>1987</option>
+                <option>1988</option>
+                <option>1989</option>                
+                <option>1990</option>
+                <option>1991</option>
+                <option>1992</option>
+                <option>1993</option>
+                <option>1994</option>
+                <option>1995</option>
+                <option>1996</option>
+                <option>1997</option>
+                <option>1998</option>               
+                <option>1999</option>
+                <option selected="selected">2000</option>
+                <option>2001</option>
+                <option>2002</option>               
+                <option>2003</option>
+                <option>2004</option>               
+                <option>2005</option>
+                <option>2006</option>               
+                <option>2007</option>
+                <option>2008</option>               
+                <option>2009</option>
+                <option>2010</option>               
+                <option>2011</option>
+                <option>2012</option>               
+                <option>2013</option>
+              </select> 
+            </div>
+            <div>
+              
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+          <div class="alert alert-success" role="alert" align="center" id="message">
+          <p><strong>购买力对比</strong></p>
+            <table style="width: 100%; text-align: center" id="messageTable">
+              <tr style="border-bottom: 2px solid #026E28;">
+                <td width="30%">2000年</td>
+                <td width="5%"> </td>
+                <td width="30%">2010年</td>
+                <td width="35%">数据来源</td>
+              </tr>
+              <tr>
+                <td> </td>
+                <td>=</td>    
+                <td> </td>
+                <td>NBSC</td>
+              </tr>
+              <tr>
+                <td> </td>
+                <td>=</td>    
+                <td> </td>
+                <td>IMF</td>
+              </tr>
+            </table>
+          </div>
+          <div>
+            <p class="text-center" style="margin-bottom: 0px"><font size="3"><strong>各年份100元人民币相对于2000年100元的价值(NBSC数据)</strong></font></p>
+            <img src="fig/relativepower.svg" class="img-responsive" alt="Responsive image">
+          </div>          
+          <div>
+            <p><strong>数据来源:</strong></p>
+            <p><a href="http://data.stats.gov.cn/workspace/index?a=q&type=global&dbcode=hgnd&m=hgnd&dimension=zb&code=A090201&region=000000&time=1978,2013">国家统计局(NBSC), 1978-2013年度全国居民消费指数</a>
+            <p><a href="http://www.imf.org/external/pubs/ft/weo/2014/02/weodata/weorept.aspx?sy=1986&ey=2019&scsm=1&ssd=1&sort=country&ds=.&br=1&pr1.x=42&pr1.y=8&c=924&s=PCPI%2CPCPIPCH%2CPCPIE%2CPCPIEPCH&grp=0&a=">国际货币基金组织(IMF), 1989-2013年度平均消费指数</a>
+          </div>
+          <div>
+            反馈:<img src="fig/feedback.png" class="img-responsive pull-right" alt="Responsive image">
+          </div>
+      </div>
+  </div>
+  </div>
+</div>
+    <script src="js/calc.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-58265709-1', 'auto');
+      ga('send', 'pageview');
+
+  </script>
+	</body>
+</html>

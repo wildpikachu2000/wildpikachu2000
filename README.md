@@ -1,2 +1,3 @@
-# 100rmb.github.io
-100rmb.org site
+# README #
+
+static web page code for purchasing power calculator 
