@@ -2,7 +2,7 @@
 // CPI data from National Bureau of Statistics of China
 // url: http://data.stats.gov.cn/workspace/index?a=q&type=global&dbcode=hgnd&m=hgnd&dimension=zb&code=A090201&region=000000&time=1978,2013
 // this should be year average data
-// 2010 CPI = 100
+// 1990 CPI = 100
 {'nbsc':{
 	"1990":100,
 	"1991":103.4,
